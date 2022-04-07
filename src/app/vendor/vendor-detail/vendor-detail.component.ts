@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../user.class';
-import { UserService } from '../user.service';
+import { Vendor } from '../vendor.class';
+import { VendorService } from '../vendor.service';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  selector: 'app-vendor-detail',
+  templateUrl: './vendor-detail.component.html',
+  styleUrls: ['./vendor-detail.component.css']
 })
-export class UserDetailComponent implements OnInit {
+export class VendorDetailComponent implements OnInit {
 
-  user!: User;
+  vendor!: Vendor;
   showVerifyButton: boolean = false;
 
   constructor(
-    private usersvc : UserService,
+    private vendorsvc : VendorService,
     private route : ActivatedRoute,
     private router : Router
   ) { }
@@ -24,10 +24,10 @@ export class UserDetailComponent implements OnInit {
   }
   verifyRemove(): void {
     this.showVerifyButton = false;
-    this.usersvc.remove(this.user.id).subscribe({
+    this.vendorsvc.remove(this.vendor.id).subscribe({
       next: (res) => {
-        console.debug("User Deleted!");
-        this.router.navigateByUrl("user/list");
+        console.debug("Vendor Deleted!");
+        this.router.navigateByUrl("vendor/list");
       },
       error: (err) => {
         console.error(err);
@@ -37,15 +37,14 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     let id = +this.route.snapshot.params["id"];
-    this.usersvc.get(id).subscribe({
+    this.vendorsvc.get(id).subscribe({
       next: (res) => {
-        console.debug("User:", res);
-        this.user = res;
+        console.debug("Vendor:", res);
+        this.vendor = res;
       },
       error: (err) => {
         console.error(err);
       }
     })
   }
-
 }

@@ -1,1 +1,54 @@
-<p>user-detail works!</p>
+<app-menu></app-menu>
+<div>
+    <span>User Detail</span>
+</div>
+<table>
+    <tbody>
+        <tr>
+            <th>Id:</th>
+            <td><input [(ngModel)]="user.id" type="number" chars="7" readonly></td>
+        </tr>
+        <tr>
+            <th>Username:</th>
+            <td><input [(ngModel)]="user.username" type="text" readonly></td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td><input [(ngModel)]="user.password" type="text" readonly></td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td><input [(ngModel)]="user.password" type="text" readonly></td>
+        </tr>
+        <tr>
+            <th>FirstName:</th>
+            <td><input [(ngModel)]="user.firstName" type="text" readonly></td>
+        </tr>
+        <tr>
+            <th>LastName:</th>
+            <td><input [(ngModel)]="user.lastName" type="text" readonly></td>
+        </tr>
+        <tr>
+            <th>Phone:</th>
+            <td><input [(ngModel)]="user.phone" type="text" chars="13" readonly></td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td><input [(ngModel)]="user.email" type="text" readonly></td>
+        </tr>
+        <tr>
+            <th>IsAdmin</th>
+            <td><input [(ngModel)]="user.isAdmin" type="checkbox" disabled></td>
+        </tr>
+        <tr>
+            <th>IsReviewer</th>
+            <td><input [(ngModel)]="user.isReviewer" type="checkbox" disabled></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button (click)="remove()" class="btn btn-danger">Delete</button>
+    <span *ngIf="showVerifyButton">
+        | <button (click)="verifyRemove()" class="btn btn-danger">Remove User</button>
+    </span>
+</div>

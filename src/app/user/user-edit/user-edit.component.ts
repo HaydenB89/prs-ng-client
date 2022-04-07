@@ -4,30 +4,25 @@ import { User } from '../user.class';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.css']
 })
-export class UserDetailComponent implements OnInit {
+export class UserEditComponent implements OnInit {
 
   user!: User;
-  showVerifyButton: boolean = false;
 
   constructor(
-    private usersvc : UserService,
-    private route : ActivatedRoute,
-    private router : Router
+    private usersvc: UserService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
-  remove(): void {
-    this.showVerifyButton = !this.showVerifyButton;
-  }
-  verifyRemove(): void {
-    this.showVerifyButton = false;
-    this.usersvc.remove(this.user.id).subscribe({
+  save(): void {
+    this.usersvc.change(this.user).subscribe({
       next: (res) => {
-        console.debug("User Deleted!");
-        this.router.navigateByUrl("user/list");
+        console.debug("User updated");
+        this.router.navigateByUrl("/user/list");
       },
       error: (err) => {
         console.error(err);
@@ -45,7 +40,6 @@ export class UserDetailComponent implements OnInit {
       error: (err) => {
         console.error(err);
       }
-    })
+    });
   }
-
 }

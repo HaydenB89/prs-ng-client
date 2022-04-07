@@ -3,11 +3,11 @@ import { User } from '../user.class';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-userlist',
-  templateUrl: './userlist.component.html',
-  styleUrls: ['./userlist.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class UserlistComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
   users: User[] = [];
   searchCriteria: string = "";
