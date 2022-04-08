@@ -1,0 +1,11 @@
+<app-menu></app-menu> <!--temporary-->
+<p>User login</p>
+<div>
+    <label>Login name:</label>
+    <input [(ngModel)]="login" type="text">
+</div>
+<div>
+    <label>Password:</label>
+    <input [(ngModel)]="password" type="password">
+</div>
+<button (click)="submit()">Login</button>

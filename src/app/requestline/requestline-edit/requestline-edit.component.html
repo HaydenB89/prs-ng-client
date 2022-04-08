@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<div>
+    <span>Product Edit</span>
+</div>
+<table>
+    <tbody>
+
+        <tr>
+            <th>Id:</th>
+            <td><input [(ngModel)]="requestline.id" type="number" disabled=""></td>
+        </tr>
+        <tr>
+            <th>Request Id:</th>
+            <td><input [(ngModel)]="requestline.requestId" type="text"></td>
+        </tr>
+        <tr>
+            <th>Product Id:</th>
+            <td><input [(ngModel)]="requestline.productId" type="text"></td>
+        </tr>
+        <tr>
+            <th>Qty:</th>
+            <td><input [(ngModel)]="requestline.qty" type="number"></td>
+        </tr> 
+        
+    </tbody>
+</table>
+<div>
+    <button (click)="save()">Save</button>
+</div>
