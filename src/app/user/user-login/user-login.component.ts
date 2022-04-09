@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SystemService } from 'src/app/system.service';
+import { User } from '../user.class';
 import { UserService } from '../user.service';
 
 @Component({
@@ -7,24 +9,32 @@ import { UserService } from '../user.service';
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']
 })
+
 export class UserLoginComponent implements OnInit {
 
-  login: string = "";
+  username: string = "";
   password: string = "";
+  invld: string = "";
 
   constructor(
+    private systemsvc: SystemService,
     private usersvc: UserService,
     private router : Router
   ) { }
 
-  submit(): void {
-    this.usersvc.login(this.login, this.password).subscribe({
+  login(): void {
+    this.usersvc.login(this.username, this.password).subscribe({
       next: (res) => {
         console.log("Logged-in. Good job!");
+        this.systemsvc.chklogin();
         this.router.navigateByUrl("/home");
       },
       error: (err) => {
-        console.error("Oh no! You messed up logging in!");
+        if(err.status == 404){
+          this.invld = "Invalid username or password!"
+        } else {
+        console.error(err);
+        }
       }
     });
   }
@@ -33,3 +43,5 @@ export class UserLoginComponent implements OnInit {
   }
 
 }
+
+
