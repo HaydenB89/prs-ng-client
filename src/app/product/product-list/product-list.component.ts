@@ -28,4 +28,10 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  addVendorName(product: Product[]) {
+    for(let p of product) {
+      p.vendorName = p.vendor.name;
+    }
+  }
+
 }

@@ -1,7 +1,7 @@
 <nav>
-    <ul>
-      <li *ngFor="let m of menus">
-          <a routerLink="{{ m.route }}">{{ m.display }}</a>
+    <ul style="margin-bottom: 1px; padding: 0px; border: 0px;">
+      <li>
+          <a routerLink="{{ m.route }}" *ngFor="let m of menus">{{ m.display }}</a>
       </li>  
     </ul>
 </nav>

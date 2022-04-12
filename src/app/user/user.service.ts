@@ -15,7 +15,7 @@ export class UserService {
   ) { }
 
   login(login: string, password: string): Observable<User> {
-    return this.http.get(`http://localhost:57815/api/users/${login}/${password}`) as Observable<User>;
+    return this.http.get(`${this.baseUrl}/${login}/${password}`) as Observable<User>;
   }
 
   list(): Observable<User[]> {

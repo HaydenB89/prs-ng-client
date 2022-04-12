@@ -1,12 +1,15 @@
+ul { 
+    background-color: rgb(36, 39, 44);
+}
 li {
     display: inline-block;
 }
 a {
-    color: rgb(9, 9, 9);
-    padding: 0 10px;
+    color: white;
     text-decoration: none;
+    padding: 0 15px;
 }
 a:hover {
     color: white;
-    background-color: black;
+    background-color: rgb(73, 78, 85);
 }

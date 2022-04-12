@@ -1,8 +1,8 @@
 <app-menu></app-menu>
-<div>
-    <span>Request Detail</span>
+<div id="banner1">
+    <span style="font-weight: bold;">Request Detail</span>
 </div>
-<table>
+<table  class="table table-dark table-striped" style="margin-bottom: 0px;">
     <tbody>
         
         <tr>
@@ -40,9 +40,9 @@
 
     </tbody>
 </table>
-<div>
-    <button (click)="remove()" class="btn btn-danger">Delete</button>
-    <span *ngIf="showVerifyButton">
-        | <button (click)="verifyRemove()" class="btn btn-danger">Remove Request</button>
+<div id="banner1">
+    <button (click)="remove()" id="btnb4vrfy" class="btn btn-danger">Delete</button>
+    <span *ngIf="showVerifyButton">|
+          &nbsp;<button (click)="verifyRemove()" id="vrfybtn" class="btn btn-danger">Remove Request</button>
     </span>
 </div>

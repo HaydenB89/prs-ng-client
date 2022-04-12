@@ -1,9 +1,9 @@
 <app-menu></app-menu>
-<div>
-    <span>Requests</span> |
-    <a routerLink="/request/create">New Request</a>
+<div id="banner1">
+    <span style="font-weight: bold;">Requests</span> |
+    <a routerLink="/request/create" id="a-link">New Request</a>
 </div>
-<table>
+<table class="table table-dark table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -13,7 +13,8 @@
             <th>Delivery Mode</th>
             <th>Status</th>
             <th>Total</th>
-            <th>User Id</th>
+            <th>User</th>
+            <th style="padding-left: 47px ;">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -25,10 +26,11 @@
             <td>{{ r.deliveryMode }}</td>
             <td>{{ r.status }}</td>
             <td>{{ r.total | currency }}</td>
-            <td>{{ r.userId }}</td>
+            <td>{{ r.user.username }}</td>
             <td>
-                <a routerLink="/request/detail/{{ r.id }}">Detail</a> |
-                <a routerLink="/request/edit/{{ r.id }}">Edit</a>
+                <a routerLink="/request/detail/{{ r.id }}" id="alnk-ul">Detail</a> |
+                <a routerLink="/request/edit/{{ r.id }}" id="alnk-ul">Edit</a> |
+                <a routerLink="/request/lines/{{ r.id }}" id="alnk-ul">Lines</a>
             </td>
         </tr>
     </tbody>

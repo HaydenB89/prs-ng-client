@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemService } from 'src/app/system.service';
-import { User } from '../user.class';
 import { UserService } from '../user.service';
 
 @Component({
@@ -26,8 +25,8 @@ export class UserLoginComponent implements OnInit {
     this.usersvc.login(this.username, this.password).subscribe({
       next: (res) => {
         console.log("Logged-in. Good job!");
-        this.systemsvc.chklogin();
-        this.router.navigateByUrl("/home");
+        this.systemsvc.setUser(res);
+        this.router.navigateByUrl("/request/list");
       },
       error: (err) => {
         if(err.status == 404){

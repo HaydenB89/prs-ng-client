@@ -29,6 +29,7 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { RequestLinesComponent } from './request/request-lines/request-lines.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     RequestEditComponent,
     RequestlineCreateComponent,
     RequestlineEditComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    RequestLinesComponent
   ],
   imports: [
     BrowserModule,

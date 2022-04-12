@@ -11,5 +11,6 @@ export class Product {
 
     vendorId: number = 0;
     vendor!: Vendor;
+    vendorName: string = "";
 
 }

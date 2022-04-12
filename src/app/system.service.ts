@@ -1,4 +1,3 @@
-import { not } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './user/user.class';
@@ -14,7 +13,7 @@ export class SystemService {
 
   user: any = null; 
 
-  get isLoggedIn() {
+   get isLoggedIn() {
     return this.user != null;
   }
 
@@ -24,7 +23,7 @@ export class SystemService {
     }
   }
 
-  getUser() {
+  getUser(): User|null {
     return this.user; 
   }
 
