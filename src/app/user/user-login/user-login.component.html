@@ -1,13 +1,20 @@
 
-<app-menu></app-menu> <!--Temporary Until it works-->
-<p>User login</p>
+<main id="banner1">
+<h2 class="text-center" style="color: aquamarine;">WELCOME!
+    <br>To the PRS Client Portal.
+</h2>
+<div class="text-center" id="lginbox">
+<p style="font-weight: bold;">User login</p>
 <div>
-    <label>User Name:</label>
+    <label id="lb1">User Name:</label>
     <input [(ngModel)]="username" name="username" type="text">
 </div>
 <div>
-    <label>Password:</label>
+    <label id="lb2">Password:</label>
     <input [(ngModel)]="password" name="password" type="password">
 </div>
-<button (click)="login()">Login</button>
-<span>{{ invld }}</span> 
+<button (click)="login()" class="btn btn-secondary" id="btnb4vrfy" style="margin-bottom: 20px;">Login</button>
+<br>
+<span>{{ invld }}</span>
+</div> 
+</main>
