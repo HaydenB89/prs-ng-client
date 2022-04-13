@@ -13,6 +13,7 @@ export class Request {
 
     userId: number = 0;
     user!: User;
+    userUsername : string = "";
 
-    requestlines!: Requestline[]
+    requestLines!: Requestline[]
 }

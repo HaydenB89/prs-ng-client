@@ -8,7 +8,7 @@ import { Requestline } from './requestline.class';
 })
 export class RequestlineService {
 
-  baseUrl: string = "http://localhost:57815/api/requestlnes"
+  baseUrl: string = "http://localhost:57815/api/requestlines"
 
   constructor(
     private http: HttpClient

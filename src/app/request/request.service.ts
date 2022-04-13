@@ -49,4 +49,5 @@ export class RequestService {
   reject(request: Request): Observable<any> {
     return this.http.put(`${this.baseUrl}/reject/${request.id}`, request) as Observable<any>;
   }
+  
 }

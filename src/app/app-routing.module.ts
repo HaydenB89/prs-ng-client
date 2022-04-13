@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
 import { E404Component } from './core/e404/e404.component';
@@ -27,6 +27,7 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
+import { RequestLinesComponent } from './request/request-lines/request-lines.component';
 
 const routes: Routes = [
   
@@ -54,8 +55,9 @@ const routes: Routes = [
   {path: "request/detail/:id", component: RequestDetailComponent},
   {path: "request/create", component: RequestCreateComponent},
   {path: "request/edit/:id", component: RequestEditComponent}, 
+  {path: "request/lines/:id", component: RequestLinesComponent},
 
-  {path: "requestline/create", component: RequestlineCreateComponent},
+  {path: "requestline/create/:rid", component: RequestlineCreateComponent},
   {path: "requestline/edit/:id", component: RequestlineEditComponent},
 
 

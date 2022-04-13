@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Vendor } from 'src/app/vendor/vendor.class';
+import { VendorService } from 'src/app/vendor/vendor.service';
 import { Product } from '../product.class';
 import { ProductService } from '../product.service';
 
@@ -12,11 +14,13 @@ export class ProductDetailComponent implements OnInit {
 
   product!: Product;
   showVerifyButton: boolean = false;
+  vendors!: Vendor[];
 
   constructor(
     private productsvc : ProductService,
     private route : ActivatedRoute,
-    private router : Router
+    private router : Router,
+    private vendsvc : VendorService
   ) { }
 
   remove(): void {
@@ -44,6 +48,12 @@ export class ProductDetailComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
+      }
+    });
+    this.vendsvc.list().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.vendors = res;
       }
     })
   }

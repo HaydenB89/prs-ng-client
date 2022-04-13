@@ -10,12 +10,10 @@
             <td><input [(ngModel)]="requestline.id" type="number" disabled=""></td>
         </tr>
         <tr>
-            <th>Request Id:</th>
-            <td><input [(ngModel)]="requestline.requestId" type="number"></td>
-        </tr>
-        <tr>
-            <th>Product Id:</th>
-            <td><input [(ngModel)]="requestline.productId" type="number"></td>
+            <th>Product:</th>
+            <td><select [(ngModel)]="requestline.productId">
+                <option *ngFor="let p of product" value="{{p.id}}">{{p.name}}</option>
+            </select></td>
         </tr>
         <tr>
             <th>Qty:</th>

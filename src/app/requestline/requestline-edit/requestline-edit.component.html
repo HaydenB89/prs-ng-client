@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div id="banner1">
-    <span>Product Edit</span>
+    <span style="font-weight: bold;">Requestline Edit</span>
 </div>
 <table class="table table-dark table-striped">
     <tbody>
@@ -10,12 +10,10 @@
             <td><input [(ngModel)]="requestline.id" type="number" disabled=""></td>
         </tr>
         <tr>
-            <th>Request Id:</th>
-            <td><input [(ngModel)]="requestline.requestId" type="text"></td>
-        </tr>
-        <tr>
-            <th>Product Id:</th>
-            <td><input [(ngModel)]="requestline.productId" type="text"></td>
+            <th>Product:</th>
+            <td><select [(ngModel)]="requestline.productId">
+                <option *ngFor="let p of products" value="{{p.id}}">{{p.name}}</option>
+            </select></td>
         </tr>
         <tr>
             <th>Qty:</th>

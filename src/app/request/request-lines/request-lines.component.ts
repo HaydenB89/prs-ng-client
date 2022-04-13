@@ -27,23 +27,39 @@ export class RequestLinesComponent implements OnInit {
     this.requestsvc.review(this.request).subscribe({
       next: (res) => {
         console.debug("Request reviewed");
+        this.refresh();
       },
       error: (err) => console.error(err)
     });
   }
   edit(rl: Requestline): void {
-    this.router.navigateByUrl(`/requestlines/edit/${rl.id}`)
+    this.router.navigateByUrl(`/requestline/edit/${rl.id}`)
   }
   remove(rl: Requestline): void {
     this.rlsvc.remove(rl.id).subscribe({
       next: (res) => {
         console.debug("Requestline removed");
+        this.refresh();
       },
       error: (err) => console.error(err)
     });
   }
 
-  ngOnInit(): void {
+  refresh(): void{
+    let id= this.route.snapshot.params['id'];
+    this.requestsvc.get(+id).subscribe({
+      next: (res) => {
+        console.debug(res);
+        this.request=res;
+      }
+    })
   }
 
+  ngOnInit(): void{ 
+
+    this.refresh();
+
+  }
+
+  
 }

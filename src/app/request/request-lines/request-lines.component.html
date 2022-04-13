@@ -7,19 +7,18 @@
         <tr>
             <th>Id</th>
             <th>Description</th>
-            <th>Status</th>
-            <th>Total</th>
             <th>User</th>
-            <th>Actions</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th></th>
         </tr>
     </thead>
     <tbody *ngIf="request">
         <tr>
             <td>{{ request.id }}</td>
             <td>{{ request.description }}</td>
-            <td>{{ request.status }}</td>
+            <td *ngIf="request.user">{{ request.user.username }}</td>
             <td>{{ request.total | currency }}</td>
-            <td>{{ request.user.username }}</td>
             <td>{{ request.status }}</td>
             <td>
                 <button (click)="review()">Review</button>
@@ -27,7 +26,7 @@
         </tr>
     </tbody>
 </table>
-<a routerLink="/requestlines/create/{{ request.id }}">New Line</a>
+<a *ngIf="request" routerLink="/requestline/create/{{ request.id }}">New Line</a>
 <table class="table table-dark table-striped">
     <thead>
         <tr>
@@ -39,8 +38,8 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody *ngFor="let rl of request.requestlines">
-        <tr>
+    <tbody *ngIf="request && request.requestLines">
+        <tr *ngFor="let rl of request.requestLines">
             <td>{{ rl.id }}</td>
             <td>{{ rl.product.name }}</td>
             <td>{{ rl.qty }}</td>
