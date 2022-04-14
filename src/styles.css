@@ -1,27 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 html { background-color: rgb(36, 39, 44);}
 
-#banner1 {
+.banner1 {
     background-color: rgb(36, 39, 44);
     color: white;
 }
 
-#a-link {
+.a-link {
     color: rgb(151, 168, 184);
     background-color: transparent;
     text-decoration: none;
 }
 
-#alnk-ul {
+.alnk-ul {
     color: rgb(151, 168, 184);
     background-color: transparent;
 }
 
-#blkdbx {
+.blkdbx {
     background-color: lightgray;
 }
 
-#btnb4vrfy {
+.btnb4vrfy {
     margin-left: 20px;
     margin-right: 10px;
     margin-top: 10px;
@@ -29,6 +29,6 @@ html { background-color: rgb(36, 39, 44);}
 
 }
 
-#vrfybtn {
+.vrfybtn {
     margin-top: 10px;
 }

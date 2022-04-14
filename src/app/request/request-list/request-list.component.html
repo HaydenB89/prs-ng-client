@@ -1,7 +1,7 @@
 <app-menu></app-menu>
-<div id="banner1">
+<div class="banner1">
     <span style="font-weight: bold;">Requests</span> |
-    <a routerLink="/request/create" id="a-link">New Request</a>
+    <a routerLink="/request/create" class="a-link">New Request</a>
 </div>
 <table class="table table-dark table-striped">
     <thead>
@@ -28,9 +28,9 @@
             <td>{{ r.total | currency }}</td>
             <td>{{ r.user.username }}</td>
             <td>
-                <a routerLink="/request/detail/{{ r.id }}" id="alnk-ul">Detail</a> |
-                <a routerLink="/request/edit/{{ r.id }}" id="alnk-ul">Edit</a> |
-                <a routerLink="/request/lines/{{ r.id }}" id="alnk-ul">Lines</a>
+                <a routerLink="/request/detail/{{ r.id }}" class="alnk-ul">Detail</a> |
+                <a routerLink="/request/edit/{{ r.id }}" class="alnk-ul">Edit</a> |
+                <a routerLink="/request/lines/{{ r.id }}" class="alnk-ul">Lines</a>
             </td>
         </tr>
     </tbody>

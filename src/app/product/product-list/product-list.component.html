@@ -1,7 +1,7 @@
 <app-menu></app-menu>
-<div id="banner1">
+<div class="banner1">
     <span style="font-weight: bold;">Products</span> |
-    <a routerLink="/product/create" id="a-link">Create New Product</a>
+    <a routerLink="/product/create" class="a-link">Create New Product</a>
 </div>
 <table class="table table-dark table-striped">
     <thead>
@@ -26,8 +26,8 @@
             <td>{{ p.photoPath }}</td>
             <td>{{ p.vendor }}</td>
             <td>
-                <a routerLink="/product/detail/{{ p.id }}">Detail</a> |
-                <a routerLink="/product/edit/{{ p.id }}">Edit</a>
+                <a routerLink="/product/detail/{{ p.id }}" class="alnk-ul">Detail</a> |
+                <a routerLink="/product/edit/{{ p.id }}" class="alnk-ul">Edit</a>
             </td>
         </tr>
     </tbody>

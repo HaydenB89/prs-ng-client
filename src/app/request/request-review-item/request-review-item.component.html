@@ -1,0 +1,54 @@
+<app-menu></app-menu>
+<div class="banner1">
+    <span style="font-weight: bold;">Request Lines</span>
+</div>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th *ngIf="request.rejectionReason">Rejection Reason</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.description }}</td>
+            <td *ngIf="request.rejectionReason">{{ request.rejectionReason }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ request.total | currency }}</td>
+            <td *ngIf="request.user">{{ request.user.username }}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Product</td>
+            <td>Qty</td>
+            <td>Price</td>
+            <td>Line Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rl of request.requestLines">
+            <td>{{ rl.id }}</td>
+            <td>{{ rl.product.name }}</td>
+            <td>{{ rl.qty }}</td>
+            <td>{{ rl.product.price | currency }}</td>
+            <td>{{ rl.product.price * rl.qty | currency }}</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <button (click)="approve()">Approve</button> |
+    <button (click)="reject()">Reject</button>
+    <span *ngIf="verifyBtn">
+        || <input [(ngModel)]="request.rejectionReason" type="text" placeholder="Rejection reason">
+        || <button (click)="verifyReject()">Verify Reject</button>
+    </span>
+</p>
